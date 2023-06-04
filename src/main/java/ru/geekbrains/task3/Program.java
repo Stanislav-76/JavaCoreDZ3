@@ -2,7 +2,10 @@ package ru.geekbrains.task3;
 
 import ru.geekbrains.task3.sample1.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Program {
     public static void main(String[] args) {
@@ -41,6 +44,19 @@ public class Program {
         workers2.getWorkers().sort(new BaseWorkerSalaryComparator());
 
         for (BaseWorker worker: workers2) {
+            System.out.println(worker);
+        }
+
+        System.out.println("\nЧерез массив + сортировка");
+        BaseWorker[] workers3 = {
+                new WorkerHourly("Андрей", 300),
+                new WorkerPermanent(35000),
+                new WorkerPermanent("Григорий", 30000)
+        };
+
+        Arrays.sort(workers3, new BaseWorkerSalaryComparator());
+
+        for (BaseWorker worker: workers3) {
             System.out.println(worker);
         }
 
